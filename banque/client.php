@@ -1,0 +1,83 @@
+<?php
+class Titulaire
+{
+    // Properties
+    
+    private $nom ;
+    private $prenom ;
+    private $dateDeNaissance ;
+    private $ville ;
+    public $comptes = [];
+  
+
+    public function __construct($c_nom, $c_prenom, $c_dateDeNaissance,$c_ville)
+    {
+        $this->nom = $c_nom;
+        $this->prenom = $c_prenom;
+        $this->dateDeNaissance = $c_dateDeNaissance;
+        $this->ville = $c_ville ;
+      
+    
+    }
+        // Methods
+        public function getNom(){
+            return $this->nom;
+        }
+        public function setNom($p_nom){
+            $this->nom = $p_nom;
+        }
+        public function getPrenom(){
+            return $this->prenom;
+        }
+        public function setPrenom($p_prenom){
+            $this->prenom = $p_prenom;
+        }
+        public function getDateDeNaissance(){
+            return $this->dateDeNaissance;
+        }
+        public function setDateDeNaissance($p_dateDeNaissance){
+            $this->dateDeNaissance = $p_dateDeNaissance;
+        }
+        public function getAge(){
+            $date= new DateTime();
+            $date1= new DateTime ($this->getDateDeNaissance());
+            $diff=date_diff($date1,$date);
+            return $diff->format(" %y ans");
+        }
+
+        public function getVille(){
+            return $this->ville;
+        }
+        public function setVille($p_ville){
+            $this->ville = $p_ville;
+        }
+
+        public function addCompts($param){
+            $this->comptes = $param;
+        }
+        public function getCompts(){
+            return $this->comptes;
+        }
+        public function getComptesInfo(){
+            $s="";
+            $s.= "<br> info comptes <br> ************** <br>";
+            foreach ($this->comptes as $key => $value){
+                
+                $s.= $value->infoComptC() ;
+            }
+            return $s;
+        }
+        
+    
+        function infoTitulaire(){
+           
+            $s="";
+            $s.= "<br> info <br> ************** <br>";
+            $s.= "le nom du titulaire : " . $this->getNom() ."<br>";
+            $s.= "le prénom du titulaire :" . $this->getPrenom() ."<br>" ;
+            $s.= "Le titulaire à " . $this->getAge() . "<br>"; 
+            $s.= "Le titulaire vie à " . $this->getVille() . "<br>"; 
+            $s.= $this->getComptesInfo();
+            return  $s;
+        }
+}
