@@ -3,10 +3,10 @@ class Titulaire
 {
     // Properties
     
-    private $nom ;
-    private $prenom ;
-    private $dateDeNaissance ;
-    private $ville ;
+    protected $nom ;
+    protected $prenom ;
+    protected $dateDeNaissance ;
+    protected $ville ;
     public $comptes = [];
   
 
@@ -52,16 +52,18 @@ class Titulaire
             $this->ville = $p_ville;
         }
 
-        public function addCompts($param){
-            $this->comptes = $param;
+        public function addCompte($param){
+            $s="";
+            $s.=array_push($this->comptes,$param);
+            return $s;
         }
         public function getCompts(){
             return $this->comptes;
         }
         public function getComptesInfo(){
             $s="";
-            $s.= "<br> info comptes <br> ************** <br>";
-            foreach ($this->comptes as $key => $value){
+            $s.= "<br> info comptes client <br> ******************** <br>";
+            foreach ($this->comptes as  $value){
                 
                 $s.= $value->infoComptC() ;
             }
@@ -72,7 +74,7 @@ class Titulaire
         function infoTitulaire(){
            
             $s="";
-            $s.= "<br> info <br> ************** <br>";
+            $s.= "<br> info client <br> ************** <br>";
             $s.= "le nom du titulaire : " . $this->getNom() ."<br>";
             $s.= "le prénom du titulaire :" . $this->getPrenom() ."<br>" ;
             $s.= "Le titulaire à " . $this->getAge() . "<br>"; 

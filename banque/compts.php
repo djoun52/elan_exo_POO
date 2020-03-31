@@ -104,7 +104,7 @@ class Compte
         {   
    
             $s="";
-            $s.= "<br> info <br> ************** <br>";
+            $s.= "<br> info compte <br> ************** <br>";
             $s.= "Le numéro du compte : " .$this->getNumero() . "<br>";
             $s.= "le libellé du compte : " . $this->getLibelle() ."<br>";
             $s.= "le solde du compte :" . $this->getSoldeInitial() ."<br>" ;
