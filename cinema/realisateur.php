@@ -6,7 +6,7 @@ class Realisateur
     protected $nom ;
     protected $prenom ;
     protected $dateDeNaissance ;
-    public $film; 
+    public $film= []; 
 
     public function __construct($c_nom, $c_prenom, $c_dateDeNaissance){
 
@@ -35,7 +35,7 @@ class Realisateur
     }
     public function getNomPrenom()
     {
-        $s= $this->nom . " " . $this->prenom;
+        $s= $this->prenom . " " . $this->nom;
         return $s;
     }
     public function getDateDeNaissance()
@@ -52,15 +52,19 @@ class Realisateur
         $diff=date_diff($date1,$date);
         return $diff->format(" %y ans");
     }
+    public function getFilm(){
+        return $this->film;
+    }
     public function addFilm($film){
        
         return array_push($this->film,$film);
     }
     public function getInfoFilm(){
-        $s="Les film réalisé par  ". $this->getNomPrenom() . " sont : <br>";
-         foreach ($this->film as $value){
+        $s="<br> info réalisateur <br> ************** <br>";
+        $s.="Les film réalisé par  ". $this->getNomPrenom() . " sont : <br>";
+         foreach ($this->getFilm() as $value){
              $s.= $value->getTitre() ."<br>";
          }
-  
+         return $s;
      }
 }

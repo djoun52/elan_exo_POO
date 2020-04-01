@@ -12,7 +12,7 @@ class Genre
         is_string($c_nom) ? $this->nom = $c_nom : NULL;
     }
     
-     // Methods
+     // Methods 
      public function getNom()
      {
          return $this->nom;
@@ -26,10 +26,11 @@ class Genre
         return array_push($this->film,$param);
     }
      public function getInfoFilm(){
-       $s="Les film du genre ". $this->getNom() . " : <br>";
+       $s="<br> info genre <br> ************** <br>";
+       $s.="Les film du genre ". $this->getNom() . " : <br>";
         foreach ($this->film as $value){
             $s.= $value->getTitre() ."<br>";
         }
- 
+        return $s;
     }
 }

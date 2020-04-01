@@ -35,7 +35,7 @@ class Acteur
     }
     public function getNomPrenom()
     {
-        $s= $this->nom . " " . $this->prenom;
+        $s= $this->prenom . " " . $this->nom;
         return $s;
     }
     public function getDateDeNaissance()
@@ -60,16 +60,18 @@ class Acteur
         return $s;
     }
     public function getInfoRole(){
-        $s="Les role de ". $this->getNomPrenom() . " : <br>";
+        $s="<br> info acteur par rôle <br> ************** <br>";
+        $s.="Les role de ". $this->getNomPrenom() . " : <br>";
          foreach ($this->role as $key => $value){
-             $s.= $value->getNom() ." dans ". $key->getTitre() . "<br>";
+             $s.= $value->getNom() ." dans ". $key. "<br>";
          }
          return $s;
      }
     public function getInfoFilm(){
-        $s="Les film de ". $this->getNomPrenom() . " : <br>";
+        $s="<br> info acteur par film <br> ************** <br>";
+        $s.="Les film de ". $this->getNomPrenom() . " : <br>";
          foreach ($this->role as $key => $value){
-             $s.= $key->getTitre() ." role : ". $value->getNom() . "<br>";
+             $s.= $key ." role : ". $value->getNom() . "<br>";
          }
          return $s;
 

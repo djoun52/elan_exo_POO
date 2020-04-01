@@ -20,15 +20,20 @@ class Role
     {
         $this->nom = $p_nom;
     }
+    public function getActeur()
+    {
+        return $this->acteur;
+    }
     public function addActeur($acteur,$film){
         $this->acteur[$film->getTitre()]=$acteur;
         $s=$this->acteur;
         return $s;
     }
-    public function getActeur($acteur,$film){
-        $s="le role de ". $this->getNom() . " à été inerpréter par : ";
-        foreach ($this->acteur as $key => $value){
-            $s.= $value->getNomPrenom() . " dans $key ";
+    public function getInfoActeur(){
+        $s="<br> info role <br> ************** <br>";
+        $s.="le role de". $this->getNom() . " à été inerpréter par : <br> ";
+        foreach ($this->getActeur() as $key => $value){
+            $s.= $value->getNomPrenom() . " dans $key <br> ";
         }
         return $s;
     }
