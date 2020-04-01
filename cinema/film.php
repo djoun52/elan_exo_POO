@@ -109,7 +109,7 @@ class Film
         $s="<br> info film <br> ************** <br>";
         $s.="le titre de film : " . $this->getTitre() . "<br>";
         $s.="le film est sortie en : " .$this->getDateDeSortie() . "<br>";
-        $s.="la durée du film : " .$this->getDuree() . "<br>";
+        $s.="la durée du film : " .$this->convertDuree() . "<br>";
         $s.="le ou les genre du film : " .$this->printGenre() . "<br>";
         $s.="les acteurs de film : <br> " .$this->printActeur();
         $s.="le réalisateur du film : " .$this->getRealisateurNomPrenom() . "<br>";
